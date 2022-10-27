@@ -11,8 +11,7 @@
 @media screen and (max-width:900px) {
     .profile__info {
        display: flex;
-       flex-wrap: wrap;
-                      
+       flex-wrap: wrap;           
     }
 
 }

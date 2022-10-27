@@ -1,15 +1,4 @@
 .profile__name {
-    /*
-    
-    
-    
-    
-    
-    
-    color: white;
-    margin: 0 0 16px 0;
-    grid-area: header;
-    max-width: 294px;*/
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -19,7 +8,6 @@
     line-height: 48px;
     color: white;
     margin: 0;
-
 }
 
 @media screen and (max-width:900px) {
@@ -29,8 +17,6 @@
        max-width: 250px;
         font-size: 27px;
         line-height: 33px;
-
-
     }
 
 }

@@ -1,18 +1,4 @@
-.profile__profession {
-    /*  
-    
-    
-    
-    margin-top: 0;
-    margin-bottom: 0;
-    
-    
-    
-    
-    grid-area: profession;
-    width: 336px;
-    
-    grid-column-start: 2;*/
+.profile__profession {       
     justify-content: start;
     max-width: 336px;
     margin: 0 ;
@@ -24,12 +10,10 @@
     white-space: nowrap;
     overflow: hidden;
     color: white;
-
 }
 
 @media screen and (max-width:900px) {
     .profile__profession {
-        
         max-width: 250px;
         font-size: 14px;
         line-height: 17px;
