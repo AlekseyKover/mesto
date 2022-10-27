@@ -1,0 +1,8 @@
+.page {
+    -webkit-font-smoothing: subpixel-antialiased;
+    max-width: 1280px;
+    margin: 0 auto;
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #000000;
+    min-width: 320px;
+}

@@ -1,0 +1,15 @@
+.popup__profession {
+    margin-bottom: 51px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+@media screen and (max-width:900px) {
+    .popup__profession {
+        margin-bottom: 45px;
+    }
+
+}

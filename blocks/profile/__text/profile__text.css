@@ -1,0 +1,37 @@
+.profile__text {
+    display: grid;
+    /*grid-template-areas:
+        "avatar header images"
+        "profession profession profession";*/
+    grid-template-columns: 294px 24px;
+  /*  margin-left: 29px;
+    margin-top: 22px;
+    margin-bottom: 25px;
+    column-gap: 18px;
+    row-gap: 16px;
+*/
+margin-left: 30px;
+}
+
+@media screen and (max-width:900px) {
+    .profile__text {
+        
+        /*align-items: center;
+        gap: 14px 10px;
+        
+        justify-content: center;
+        flex-wrap: wrap;
+       margin-top: 0;
+       margin-bottom: 0;
+        text-align: center;*/
+        justify-content: center;
+        align-content: stretch;
+        margin: 0 auto;
+        row-gap: 14px;
+        grid-template-columns: 189px 18px;
+       align-items: baseline;
+        text-align: center;
+       
+    }
+
+}

@@ -1,0 +1,18 @@
+.profile__info { 
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+    justify-items: flex-start;
+    align-items: center;
+    grid-template-areas:
+        "avatar header images"
+        "profession profession profession";
+}
+
+@media screen and (max-width:900px) {
+    .profile__info {
+       display: flex;
+       flex-wrap: wrap;
+                      
+    }
+
+}

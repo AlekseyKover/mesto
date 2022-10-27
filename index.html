@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <title>Место</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/logo.svg" alt="Лого">
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__info">
+                <img class="profile__avatar" src="./images/Avatar.png" alt="Аватар пользователя">
+                <div class="profile__text">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button  type="button" class="profile__button-edit"></button>
+                    <p class="profile__profession">Исследователь океана</p>
+                </div>
+            </div>
+            <button type="button" class="profile__button-add"></button>
+        </section>
+        <section class="elements">
+            <div class="element">
+                <img class="element__photo" src="./images/Karachaevsk.png" alt="Карачаевск">
+                <div class="element__footer">
+                    <h2 class="element__title">Карачаевск</h2>
+                    <button class="element__button" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__photo" src="./images/MountainElbrus.png" alt="Гора Эльбрус">
+                <div class="element__footer">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__button" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__photo" src="./images/Dombai.png" alt="Домбай">
+                <div class="element__footer">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__button" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__photo" src="./images/MountainElbrus.png" alt="Гора Эльбрус">
+                <div class="element__footer">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__button" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__photo" src="./images/Dombai.png" alt="Домбай">
+                <div class="element__footer">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__button" type="button"></button>
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__photo" src="./images/Karachaevsk.png" alt="Карачаево-Ч">
+                <div class="element__footer">
+                    <h2 class="element__title">Карачаево-Черкесия</h2>
+                    <button class="element__button" type="button"></button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright">&copy;2022. Mesto Russia</p>
+    </footer>
+
+    <div class="popup">
+        <div class="popup__container">
+            <button type="button" class="popup__close"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__content" name="popup-content">
+                <input type="text" value="" class="popup__input popup__input_item_name" name="username">
+                <input type="text" value="" class="popup__input popup__input_item_profession" name="userprofession">
+                <button class="popup__button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>

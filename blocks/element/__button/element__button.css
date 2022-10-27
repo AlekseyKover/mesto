@@ -1,0 +1,20 @@
+.element__button {
+    border: 0;
+    background-image: url(../../../images/Vector.svg);
+    width: 22px;
+    height: 19px;
+    grid-area: image;
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    background-color: white;
+}
+
+.element__button:hover {
+    opacity: 0.6;
+    transition: all .5s;
+}
+
+.element__button:focus {
+    background-image: url(../../../images/Union.svg);
+}
