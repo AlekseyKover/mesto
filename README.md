@@ -2,3 +2,5 @@
 
 »спользовались grid/flex блоки 
 Ёлементарный JS
+
+https://alekseykover.github.io/mesto/
