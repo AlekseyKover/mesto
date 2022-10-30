@@ -2,7 +2,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    padding-bottom: 13px;
+    padding-bottom: 9px;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -13,3 +13,10 @@
     white-space: nowrap;
     overflow: hidden;
 }
+@media screen and (max-width: 900px) {
+    .popup__input{
+        padding-bottom: 8px;
+    }
+} 
+    
+

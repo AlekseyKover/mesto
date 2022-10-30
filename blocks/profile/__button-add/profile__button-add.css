@@ -1,4 +1,5 @@
 .profile__button-add {
+    cursor: pointer;
     width: 150px;
     height: 50px;
     border: 2px solid #FFFFFF;
@@ -11,9 +12,10 @@
 
 @media screen and (max-width:900px) {
     .profile__button-add {
+        background-image: url(../../../images/Vector-plus2.svg);
         object-fit: contain;
         width: 282px;
-        margin: 36px auto 0 auto;
+        margin: 32px auto 0 auto;
         height: 50px;
         padding: 0;
     }

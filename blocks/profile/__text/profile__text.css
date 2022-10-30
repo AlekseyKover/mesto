@@ -9,8 +9,8 @@
         justify-content: center;
         align-content: stretch;
         margin: 0 auto;
-        row-gap: 14px;
-        grid-template-columns: 189px 18px;
+        row-gap: 6px;
+        grid-template-columns: 200px 0;
         align-items: baseline;
         text-align: center;
     }

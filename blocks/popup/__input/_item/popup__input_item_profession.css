@@ -1,10 +1,10 @@
 .popup__input_item_profession {
-    margin-bottom: 51px;
+    margin-bottom: 49px;
 }
 
 @media screen and (max-width:900px) {
     .popup__input_item_profession {
-        margin-bottom: 45px;
+        margin-bottom: 46px;
     }
 
 }
