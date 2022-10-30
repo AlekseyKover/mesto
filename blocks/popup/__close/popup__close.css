@@ -14,11 +14,11 @@
 
 @media screen and (max-width:900px) {
     .popup__close {
-        top: -35px;
+        top: -37px;
         width: 20px;
         height: 20px;
         background-size: 20px;
-        right: 7px;
+        right: 0;
     }
 
 }
