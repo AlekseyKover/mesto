@@ -5,7 +5,7 @@
     background-color: white;
     border-radius: 10px;
     object-fit: scale-down;
-    
+    position: relative;
 }
 
 @media screen and (max-width:900px) {

@@ -1,4 +1,4 @@
-.popup__image-close{
+.popup__image-close {
     cursor: pointer;
     background: transparent;
     background-image: url(../../../images/Close\ Icon.png);
@@ -9,5 +9,16 @@
     border: none;
     top: -40px;
     right: -34px;
+
+}
+
+@media screen and (max-width:900px) {
+    .popup__image-close {
+        height: 20px;
+        width: 20px;
+        background-size: 20px;
+        top: -30px;
+        right: 0;
+    }
 
 }

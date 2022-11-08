@@ -46,10 +46,10 @@
     <div class="popup popup_add">
         <div class="popup__container popup__container_add">
             <button type="button" class="popup__close popup__close_add"></button>
-            <h2 class="popup__title">Новое Место</h2>
+            <h2 class="popup__title">Новое место</h2>
             <form class="popup__content" name="popup-content">
-                <input type="text" value="" class="popup__input popup__input_item_name" name="username">
-                <input type="text" value="" class="popup__input popup__input_item_profession" name="userprofession">
+                <input type="text" value="" placeholder="Название" class="popup__input popup__input_item_text" name="username">
+                <input type="text" value="" placeholder="Ссылка на картинку" class="popup__input popup__input_item_link" name="userprofession">
                 <button class="popup__button popup__button_add" type="submit">Создать</button>
             </form>
         </div>
@@ -65,6 +65,7 @@
 
     <template class="template">
         <div class="element">
+            <img class="element__delete" src="./images/Vector-trach.svg">
             <img class="element__photo" src="./images/Karachaevsk.png" alt="Карачаевск">
             <div class="element__footer">
                 <h2 class="element__title">Карачаевск</h2>

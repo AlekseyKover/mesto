@@ -12,6 +12,7 @@
     border-radius: 2px;
     box-sizing: border-box;
     color: #FFFF;
+    margin: 0;
 }
 
 @media screen and (max-width:900px) {
