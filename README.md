@@ -1,6 +1,12 @@
-Работа выполнена с применением адаптивной верстки 
+Адаптивный одностраничный сайт, для размещения фотографиий.
 
-Использовались grid/flex блоки 
-Элементарный JS
+Использованные технологии 
+HTML
+CSS
+JavaScript
 
+///github///
 https://alekseykover.github.io/mesto/
+
+///figma///
+https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4
