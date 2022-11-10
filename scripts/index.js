@@ -24,11 +24,11 @@ const templateCard = cardTemplate.querySelector('.element');
 
 
 const createCard = (cardData) => {
-  const cardAdd = templateCard.cloneNode(true);
-  const cardName = cardAdd.querySelector('.element__title');
-  const cardTrash = cardAdd.querySelector('.element__delete');
-  const cardLike = cardAdd.querySelector('.element__button');
-  const cardImage = cardAdd.querySelector('.element__photo');
+  const card = templateCard.cloneNode(true);
+  const cardName = card.querySelector('.element__title');
+  const cardTrash = card.querySelector('.element__delete');
+  const cardLike = card.querySelector('.element__button');
+  const cardImage = card.querySelector('.element__photo');
 
   cardName.textContent = cardData.name;
   cardImage.src = cardData.link;
@@ -43,9 +43,9 @@ const createCard = (cardData) => {
   });
 
   cardTrash.addEventListener('click', () => {
-    cardAdd.remove();
+    card.remove();
   });
-  return cardAdd
+  return card
 }
 
 
@@ -57,10 +57,9 @@ const closePopup = function (popup) {
 }
 
 const openProfilePopup = function () {
-  openPopup(popupElementProfile)
   popupName.value = nameElementProfile.textContent;
   jobElement.value = professionProfile.textContent;
-
+  openPopup(popupElementProfile);
 }
 
 
