@@ -9,7 +9,7 @@
     border: none;
     top: -40px;
     right: -34px;
-
+   
 }
 
 @media screen and (max-width:900px) {
@@ -21,4 +21,8 @@
         right: 0;
     }
 
+}
+.popup__image-close:hover{
+    opacity: 0.4;
+    transition: all .3s;
 }

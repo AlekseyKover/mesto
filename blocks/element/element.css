@@ -15,3 +15,7 @@
     }
 
 }
+
+.element:hover {
+    cursor: pointer;
+}
