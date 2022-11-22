@@ -1,71 +1,69 @@
-
-
-const showInputError = (errorElement, errorMessage, enableValidation,) => {
+const showInputError = (errorElement, errorMessage, validationConfig,) => {
   errorElement.textContent = errorMessage;
-  errorElement.classList.add(enableValidation.inputErrorClass);
+  errorElement.classList.add(validationConfig.inputErrorClass);
 }
-const hidenInputError = (errorElement, enableValidation) => {
+const hidenInputError = (errorElement, validationConfig) => {
   errorElement.textContent = '';
-  errorElement.classList.remove(enableValidation.inputErrorClass);
+  errorElement.classList.remove(validationConfig.inputErrorClass);
+}
+
+const disabledButton = (buttonElement) => {
+  buttonElement.classList.add('popup__button_disabled');
+  buttonElement.setAttribute("disabled", true);
 
 }
 
-const toggleButtonState = (inputList, buttonElement, enableValidation) => {
+const toggleButtonState = (inputList, buttonElement, validationConfig) => {
 
   const hasInvalidInput = inputList.some(inputElement => !inputElement.validity.valid);
   if (hasInvalidInput) {
-    toggleButtonCheckOn(buttonElement, enableValidation);
+    toggleButtonCheckOn(buttonElement, validationConfig);
   }
   else {
-
-    toggleButtonCheckOff(buttonElement, enableValidation);
+    toggleButtonCheckOff(buttonElement, validationConfig);
   }
 
 }
 
-const toggleButtonCheckOn = (buttonElement, enableValidation) => {
+const toggleButtonCheckOn = (buttonElement, validationConfig) => {
   buttonElement.setAttribute("disabled", true);
-  buttonElement.classList.add(enableValidation.inactiveButtonClass);
+  buttonElement.classList.add(validationConfig.inactiveButtonClass);
 }
 
-const toggleButtonCheckOff = (buttonElement, enableValidation) => {
+const toggleButtonCheckOff = (buttonElement, validationConfig) => {
   buttonElement.removeAttribute("disabled");
-  buttonElement.classList.remove(enableValidation.inactiveButtonClass);
+  buttonElement.classList.remove(validationConfig.inactiveButtonClass);
 }
 
-
-
-const checkInputValidity = (inputElement, enableValidation) => {
-
+const checkInputValidity = (inputElement, validationConfig) => {
   const isValid = inputElement.validity.valid;
-
-  const formSection = inputElement.closest(enableValidation.sectionSelector);
-  const errorElement = formSection.querySelector(enableValidation.errorClass)
+  const formSection = inputElement.closest(validationConfig.sectionSelector);
+  const errorElement = formSection.querySelector(validationConfig.errorClass)
 
   if (isValid) {
-    hidenInputError(errorElement, enableValidation);
+    hidenInputError(errorElement, validationConfig);
   } else {
-    showInputError(errorElement, inputElement.validationMessage, enableValidation);
+    showInputError(errorElement, inputElement.validationMessage, validationConfig);
   }
 }
 
-const setEventListeners = (formElement, enableValidation) => {
-  const inputList = Array.from(formElement.querySelectorAll(enableValidation.inputSelector));
-  const submitButton = formElement.querySelector(enableValidation.submitButtonSelector);
+const setEventListeners = (formElement, validationConfig) => {
+  const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
+  const submitButton = formElement.querySelector(validationConfig.submitButtonSelector);
   inputList.forEach(inputElement => {
     inputElement.addEventListener('input', () => {
-      checkInputValidity(inputElement, enableValidation);
-      toggleButtonState(inputList, submitButton, enableValidation)
+      checkInputValidity(inputElement, validationConfig);
+      toggleButtonState(inputList, submitButton, validationConfig)
     })
   })
 }
-const formElementList = (enableValidation) => {
-  const form = document.querySelectorAll(enableValidation.formSelector);
+const enableValidation = (validationConfig) => {
+  const form = document.querySelectorAll(validationConfig.formSelector);
   form.forEach(formElement => {
-    setEventListeners(formElement, enableValidation);
+    setEventListeners(formElement, validationConfig);
   })
 }
-const enableValidation = {
+const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   sectionSelector: '.popup__section',
