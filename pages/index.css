@@ -26,13 +26,19 @@
 @import url(../blocks/popup/__input/_item/popup__input_item_profession.css);
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../blocks/popup/__close/popup__close.css);
-@import url(../blocks/popup/__content/popup__content.css);
+@import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/_image/popup_image.css);
 @import url(../blocks/popup/__container-images/popup__container-images.css);
 @import url(../blocks/popup/__image-close/popup__image-close.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__text/popup__text.css);
+@import url(../blocks/popup/__input/_item/popup__input_item_error.css);
+@import url(../blocks/popup/__input/popup__input-error.css);
+@import url(../blocks/popup/__input-error/_active/popup__input-error_active.css);
+@import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);
+@import url(../blocks/popup/__section/popup__section.css);
+
 /*Блок elements*/
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);

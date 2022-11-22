@@ -1,0 +1,11 @@
+.popup__input-error_active {
+    top: 27px;
+    display: flex;
+    color: red;
+    position: absolute;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+}

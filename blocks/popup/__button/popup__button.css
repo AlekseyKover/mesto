@@ -12,8 +12,10 @@
     border-radius: 2px;
     box-sizing: border-box;
     color: #FFFF;
+    z-index: 1;
     margin: 0;
 }
+
 
 @media screen and (max-width:900px) {
     .popup__button {

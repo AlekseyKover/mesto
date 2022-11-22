@@ -31,14 +31,23 @@
     <footer class="footer">
         <p class="footer__copyright">&copy;2022. Mesto Russia</p>
     </footer>
-    
+
     <div class="popup popup_edit">
         <div class="popup__container popup__container_edit">
             <button type="button" class="popup__close popup__close_edit"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__content" name="popup-content">
-                <input type="text" value="" class="popup__input popup__input_item_name" name="username">
-                <input type="text" value="" class="popup__input popup__input_item_profession" name="userprofession">
+            <form class="popup__form" name="popup-content" novalidate>
+                <section class="popup__section">
+                    <input type="text" value="" id="input-text" class="popup__input popup__input_item_name input-text"
+                        name="username"  minlength="2" maxlength="40" required>
+                    <span class="popup__input-error"> Вы пропустиле поле</span>
+                </section>
+                <section class="popup__section">
+                    <input type="text" value="" class="popup__input popup__input_item_profession" name="userprofession"
+                        required minlength="2" maxlength="200">
+                    <span class="popup__input-error"></span>
+                </section>
+
                 <button class="popup__button popup__button_edit" type="submit">Сохранить</button>
             </form>
         </div>
@@ -47,10 +56,19 @@
         <div class="popup__container popup__container_add">
             <button type="button" class="popup__close popup__close_add"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__content" name="popup-content">
-                <input type="text" value="" placeholder="Название" class="popup__input popup__input_item_text" name="username">
-                <input type="text" value="" placeholder="Ссылка на картинку" class="popup__input popup__input_item_link" name="userprofession">
-                <button class="popup__button popup__button_add" type="submit">Создать</button>
+            <form class="popup__form" name="popup-content" novalidate>
+                <section class="popup__section">
+                    <input type="text" value="" placeholder="Название" class="popup__input popup__input_item_text"
+                        name="namelocation" minlength="2" maxlength="30" required>
+                    <span class="popup__input-error">Вы пропустиле поле</span>
+                </section>
+                <section class="popup__section">
+                    <input type="url" value="" placeholder="Ссылка на картинку"
+                        class="popup__input popup__input_item_link" name="namelink" required>
+                    <span class="popup__input-error"></span>
+                </section>
+                <button class="popup__button popup__button_add  type="submit" >Создать</button>
+
             </form>
         </div>
     </div>
@@ -73,6 +91,7 @@
             </div>
         </div>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
