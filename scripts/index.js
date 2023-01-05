@@ -91,11 +91,17 @@ const handleCardFormSubmit = function (evt) {
     name: popupAddElementFormName.value,
     link: popupAddElementFormLink.value
   };
+  
   renderCard(cardData);
   popupAddForm.reset();
   closePopup(popupAddCard);
+  turnOffButtom(buttonPopupAddForm, validationConfig);
 }
 
+const turnOffButtom = (buttonElement, validationConfig) => {
+	buttonElement.setAttribute("disabled", true);
+	buttonElement.classList.add(validationConfig.inactiveButtonClass);
+}
 const closePopupPressEsc = (evt) => {
   if (evt.key === "Escape") {
     const popupOpen = document.querySelector('.popup_opened');
@@ -131,7 +137,7 @@ popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
 popupOpenButtonElementAdd.addEventListener('click', () => {
   openPopup(popupAddCard);
   popupAddForm.reset();
-
+  turnOffButtom(buttonPopupAddForm, validationConfig);
 })
 
 popupCloseElemetnAdd.addEventListener('click', () => {

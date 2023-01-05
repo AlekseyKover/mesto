@@ -19,7 +19,7 @@ export default class Card {
         this._element.querySelector('.element__photo').addEventListener('click',this._openElementImage);
     }
     _toggleButonLike = () =>{
-        this._element.querySelector('.element__button').classlist.togle('element__button_active'); 
+        this._element.querySelector('.element__button').classList.toggle('element__button_active'); 
     }
     _removeCard = ()=>{
         this._element.remove();
