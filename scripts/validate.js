@@ -1,4 +1,4 @@
-const showInputError = (errorElement, errorMessage, validationConfig,) => {
+/*const showInputError = (errorElement, errorMessage, validationConfig,) => {
   errorElement.textContent = errorMessage;
   errorElement.classList.add(validationConfig.inputErrorClass);
 }
@@ -63,14 +63,14 @@ const enableValidation = (validationConfig) => {
     setEventListeners(formElement, validationConfig);
   })
 }
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  sectionSelector: '.popup__section',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input-error_active',
-  errorClass: '.popup__input-error'
-}
+
+*/
+
+
+
+
+
+
+
 
 
