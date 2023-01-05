@@ -95,13 +95,10 @@ const handleCardFormSubmit = function (evt) {
   renderCard(cardData);
   popupAddForm.reset();
   closePopup(popupAddCard);
-  turnOffButtom(buttonPopupAddForm, validationConfig);
+
+
 }
 
-const turnOffButtom = (buttonElement, validationConfig) => {
-	buttonElement.setAttribute("disabled", true);
-	buttonElement.classList.add(validationConfig.inactiveButtonClass);
-}
 const closePopupPressEsc = (evt) => {
   if (evt.key === "Escape") {
     const popupOpen = document.querySelector('.popup_opened');
@@ -137,7 +134,7 @@ popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
 popupOpenButtonElementAdd.addEventListener('click', () => {
   openPopup(popupAddCard);
   popupAddForm.reset();
-  turnOffButtom(buttonPopupAddForm, validationConfig);
+  disabledButton.disabledButton();
 })
 
 popupCloseElemetnAdd.addEventListener('click', () => {
@@ -150,12 +147,6 @@ popupImageClose.addEventListener('click', () => {
   closePopup(popupImageItem);
 })
 
-
-
-
-
-
-
 const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -166,8 +157,9 @@ const validationConfig = {
   errorClass: '.popup__input-error'
 }
 
-const validationConfigAdd = new FormValidator(validationConfig, popupAddForm);
-const validationConfigEdit = new FormValidator(validationConfig, popupFormProfile);
+const validationConfigAdd = new FormValidator(validationConfig, popupAddForm,buttonPopupAddForm);
+const validationConfigEdit = new FormValidator(validationConfig, popupFormProfile,buttonPopupAddForm);
+const disabledButton = new FormValidator(validationConfig, popupFormProfile,buttonPopupAddForm);
 validationConfigAdd.enableValidation();
 validationConfigEdit.enableValidation();
 

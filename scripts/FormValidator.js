@@ -1,9 +1,10 @@
 export default class FormValidator {
-    constructor(validationConfig, objectForm) {
+    constructor(validationConfig, objectForm, buttonPopupAddForm) {
         this._validationConfig = validationConfig;
         this._objectForm = objectForm;
         this._inputList = Array.from(this._objectForm.querySelectorAll(this._validationConfig.inputSelector));
         this._submitButton = this._objectForm.querySelector(this._validationConfig.submitButtonSelector);
+        this._buttonPopupAddForm = buttonPopupAddForm;
     }
     _showInputError = (errorMessage) => {
         this._errorElement.textContent = errorMessage;
@@ -23,11 +24,7 @@ export default class FormValidator {
             this._showInputError(inputElement.validationMessage);
         }
     }
-   
-   
-   
 
-   
     _toggleButtonCheckOn = () => {
         this._submitButton.setAttribute("disabled", true);
         this._submitButton.classList.add(this._validationConfig.inactiveButtonClass);
@@ -38,9 +35,9 @@ export default class FormValidator {
         this._submitButton.classList.remove(this._validationConfig.inactiveButtonClass);
     }
 
-    _disabledButton = () => {
-        this._submitButton.classList.add('popup__button_disabled');
-        this._submitButton.setAttribute("disabled", true);
+    disabledButton = () => {
+        this._buttonPopupAddForm.classList.add('popup__button_disabled');
+        this._buttonPopupAddForm.setAttribute("disabled", true);
     }
 
 
@@ -57,27 +54,6 @@ export default class FormValidator {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
     _setEventListeners = () => {
         this._inputList.forEach(inputElement => {
             inputElement.addEventListener('input', () => {
