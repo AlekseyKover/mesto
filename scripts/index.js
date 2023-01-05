@@ -22,39 +22,13 @@ const jobElement = popupElementProfile.querySelector('.popup__input_item_profess
 const popupName = popupElementProfile.querySelector('.popup__input_item_name');
 const nameElementProfile = document.querySelector('.profile__name');
 const professionProfile = document.querySelector('.profile__profession');
-/*const templateCard = cardTemplate.querySelector('.element');*/
 const allPopups = document.querySelectorAll('.popup');
-/*const inputItem = document.querySelector('.popup__input-error_active');*/
 
 
 
 const createCard = (cardData) => {
   return new Card(cardData, 'template', openItemImage).render();
 }
-/*  const card = templateCard.cloneNode(true);
-  const cardName = card.querySelector('.element__title');
-  const cardTrash = card.querySelector('.element__delete');
-  const cardLike = card.querySelector('.element__button');
-  const cardImage = card.querySelector('.element__photo');
-
-  cardName.textContent = cardData.name;
-  cardImage.src = cardData.link;
-  cardImage.alt = cardData.name;
-
-  cardImage.addEventListener('click', () => {
-    openItemImage(cardData);
-  });
-
-  cardLike.addEventListener('click', () => {
-    cardLike.classList.toggle('element__button_active');
-  });
-
-  cardTrash.addEventListener('click', () => {
-    card.remove();
-  });
-  return card
-}*/
-
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupPressEsc);
@@ -83,8 +57,6 @@ const renderCard = function (cardData) {
 
 initialCards.forEach(renderCard);
  
-
-
 const handleCardFormSubmit = function (evt) {
   evt.preventDefault();
   const cardData = {
@@ -95,7 +67,6 @@ const handleCardFormSubmit = function (evt) {
   renderCard(cardData);
   popupAddForm.reset();
   closePopup(popupAddCard);
-
 
 }
 
@@ -123,7 +94,7 @@ allPopups.forEach(item => {
 
 buttonOpenProfilePopup.addEventListener('click', () => {
   openProfilePopup();
-
+  
 });
 
 popupCloseButtonProfile.addEventListener('click', () => {
@@ -132,9 +103,11 @@ popupCloseButtonProfile.addEventListener('click', () => {
 popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
 
 popupOpenButtonElementAdd.addEventListener('click', () => {
+ 
   openPopup(popupAddCard);
+  validationConfigEdit.resetValidation();
   popupAddForm.reset();
-  disabledButton.disabledButton();
+  
 })
 
 popupCloseElemetnAdd.addEventListener('click', () => {
@@ -157,9 +130,9 @@ const validationConfig = {
   errorClass: '.popup__input-error'
 }
 
-const validationConfigAdd = new FormValidator(validationConfig, popupAddForm,buttonPopupAddForm);
-const validationConfigEdit = new FormValidator(validationConfig, popupFormProfile,buttonPopupAddForm);
-const disabledButton = new FormValidator(validationConfig, popupFormProfile,buttonPopupAddForm);
+const validationConfigAdd = new FormValidator(validationConfig, popupAddForm);
+const validationConfigEdit = new FormValidator(validationConfig, popupFormProfile);
+
 validationConfigAdd.enableValidation();
 validationConfigEdit.enableValidation();
 
