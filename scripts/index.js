@@ -1,21 +1,17 @@
 import Card from "./Card.js";
 import {initialCards} from "./cards.js";
 import FormValidator from "./FormValidator.js";
+
 const popupElementProfile = document.querySelector('.popup_edit');
-const popupCloseButtonProfile = popupElementProfile.querySelector('.popup__close_edit');
 const buttonOpenProfilePopup = document.querySelector('.profile__button-edit');
 const popupFormProfile = document.querySelector('.popup__form');
 const popupAddCard = document.querySelector('.popup_add');
 const popupOpenButtonElementAdd = document.querySelector('.profile__button-add');
-const popupCloseElemetnAdd = document.querySelector('.popup__close_add');
 const popupImageItem = document.querySelector('.popup_image');
-const popupImageClose = popupImageItem.querySelector('.popup__image-close');
 const popupImageText = popupImageItem.querySelector('.popup__text');
 const popupImageImage = popupImageItem.querySelector('.popup__image');
-/*const cardTemplate = document.querySelector('.template').content;*/
 const cardsContainer = document.querySelector('.elements');
 const popupAddForm = popupAddCard.querySelector('.popup__form');
-const buttonPopupAddForm = popupAddForm.querySelector('.popup__button_add');
 const popupAddElementFormName = popupAddCard.querySelector('.popup__input_item_text');
 const popupAddElementFormLink = popupAddCard.querySelector('.popup__input_item_link');
 const jobElement = popupElementProfile.querySelector('.popup__input_item_profession');
@@ -85,40 +81,30 @@ function handleProfileFormSubmit(evt) {
 }
 
 allPopups.forEach(item => {
-  item.addEventListener('click', (event) => {
-    if (event.target === event.currentTarget) {
-      closePopup(item);
+  item.addEventListener('mousedown', (event) => {
+    if (event.target.classList.contains('popup_opened')) {
+      closePopup(item)
+    }
+    if (event.target.classList.contains('popup__close')){
+      closePopup(item)
     }
   })
 })
 
 buttonOpenProfilePopup.addEventListener('click', () => {
   openProfilePopup();
-  
 });
 
-popupCloseButtonProfile.addEventListener('click', () => {
-  closePopup(popupElementProfile);
-});
 popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
 
 popupOpenButtonElementAdd.addEventListener('click', () => {
- 
   openPopup(popupAddCard);
-  validationConfigEdit.resetValidation();
+  validationConfigAdd.toggleButtonState();
   popupAddForm.reset();
   
 })
 
-popupCloseElemetnAdd.addEventListener('click', () => {
-  closePopup(popupAddCard);
-});
-
 popupAddForm.addEventListener('submit', handleCardFormSubmit);
-
-popupImageClose.addEventListener('click', () => {
-  closePopup(popupImageItem);
-})
 
 const validationConfig = {
   formSelector: '.popup__form',
