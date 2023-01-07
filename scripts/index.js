@@ -99,9 +99,8 @@ popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
 
 popupOpenButtonElementAdd.addEventListener('click', () => {
   openPopup(popupAddCard);
-  validationConfigAdd.toggleButtonState();
   popupAddForm.reset();
-  
+  validationConfigAdd.toggleButtonState();
 })
 
 popupAddForm.addEventListener('submit', handleCardFormSubmit);

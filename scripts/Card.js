@@ -14,19 +14,14 @@ export default class Card {
         return templateCard;
     }
 
+    
     _setEventListeners = () => {
-        const templateButton = this._element
-            .querySelector('.element__button');
-        return templateButton;
-    }
-
-    _getElementsCard = () => {
-        this._elementButton.addEventListener('click', this._toggleButonLike);
+        this._likeButton.addEventListener('click', this._toggleButonLike);
         this._element.querySelector('.element__delete').addEventListener('click', this._removeCard);
         this._element.querySelector('.element__photo').addEventListener('click', this._openElementImage);
     }
     _toggleButonLike = () => {
-        this._elementButton.classList.toggle('element__button_active');
+        this._likeButton.classList.toggle('element__button_active');
     }
     _removeCard = () => {
         this._element.remove();
@@ -42,10 +37,10 @@ export default class Card {
         cardImage.alt = this._cardData.name;
     }
     render() {
-        
+
         this._element = this._getElemtnTemplate();
-        this._elementButton = this._setEventListeners();
-        this._getElementsCard();
+        this._likeButton = this._element.querySelector(".element__button");
+        this._setEventListeners();
         this._addCard();
 
         return this._element;
