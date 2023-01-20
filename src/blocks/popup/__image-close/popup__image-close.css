@@ -1,31 +1,28 @@
-.popup__close {
+.popup__image-close {
     cursor: pointer;
     background: transparent;
-    background-image: url(../../../images/Close\ Icon.png);
+    background-image: url(../../../images/Close-Icon.png);
     text-decoration: none;
     position: absolute;
     width: 32px;
     height: 32px;
     border: none;
     top: -40px;
-    right: -41px;
+    right: -34px;
    
-   
-   
-
 }
 
 @media screen and (max-width:900px) {
-    .popup__close {
-        top: -37px;
-        width: 20px;
+    .popup__image-close {
         height: 20px;
+        width: 20px;
         background-size: 20px;
+        top: -30px;
         right: 0;
     }
 
 }
-.popup__close:hover{
+.popup__image-close:hover{
     opacity: 0.4;
     transition: all .3s;
 }

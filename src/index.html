@@ -3,20 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
-    <link rel="stylesheet" href="./pages/index.css">
+    
 </head>
 
 <body class="page">
     <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="Лого">
+        <img src=./images/logo.svg class="header__logo"  alt="Лого">
     </header>
     <main class="content">
         <section class="profile">
             <div class="profile__info">
-                <img class="profile__avatar" src="./images/Avatar.png" alt="Аватар пользователя">
+                <img class="profile__avatar" src=./images/Avatar.png alt="Аватар пользователя">
                 <div class="profile__text">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button type="button" class="profile__button-edit"></button>
@@ -28,8 +27,8 @@
         <section class="elements">
             <template class="template">
                 <div class="element">
-                    <img class="element__delete" src="./images/Vector-trach.svg">
-                    <img class="element__photo" src="./images/Karachaevsk.png" alt="Карачаевск">
+                    <img class="element__delete" src=./images/Vector-trach.svg alt ='удалить'> 
+                    <img class="element__photo" src=./images/Karachaevsk.png alt="Карачаевск">
                     <div class="element__footer">
                         <h2 class="element__title">Карачаевск</h2>
                         <button class="element__button" type="button"></button>
@@ -48,12 +47,12 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form" name="popup-content" novalidate>
                 <section class="popup__section">
-                    <input type="text" value="" id="input-text" class="popup__input popup__input_item_name input-text"
+                    <input type="text" value="Жак-Ив Кусто" id="input-text" class="popup__input popup__input_item_name input-text"
                         name="username"  minlength="2" maxlength="40" required>
                     <span class="popup__input-error"> Вы пропустиле поле</span>
                 </section>
                 <section class="popup__section">
-                    <input type="text" value="" class="popup__input popup__input_item_profession" name="userprofession"
+                    <input type="text" value="Исследоваель океана" name ="userjob" class="popup__input popup__input_item_profession" 
                         required minlength="2" maxlength="200">
                     <span class="popup__input-error"></span>
                 </section>
@@ -89,7 +88,7 @@
             <p class="popup__text"></p>
         </div>
     </div>
-    <script defer type="module" src="./scripts/index.js"></script> 
+    
 </body>
 
 </html>

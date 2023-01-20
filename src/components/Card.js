@@ -1,4 +1,4 @@
-export default class Card {
+export  class Card {
     constructor(card, template, openModal) {
         this._cardData = card;
         this._elemenTemplate = template;
@@ -27,7 +27,7 @@ export default class Card {
         this._element.remove();
     }
     _openElementImage = () => {
-        this._openModal(this._cardData);
+        this._openModal.open(this._cardData);
     }
     _addCard = () => {
         const cardName = this._element.querySelector('.element__title');

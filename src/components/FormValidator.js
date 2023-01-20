@@ -1,4 +1,4 @@
-export default class FormValidator {
+export  class FormValidator {
     constructor(validationConfig, objectForm,) {
         this._validationConfig = validationConfig;
         this._objectForm = objectForm;
@@ -25,7 +25,7 @@ export default class FormValidator {
         }
     }
 
-    _disableButton = () => {
+    disableButton = () => {
         this._submitButton.setAttribute("disabled", true);
         this._submitButton.classList.add(this._validationConfig.inactiveButtonClass);
     }
@@ -39,7 +39,7 @@ export default class FormValidator {
 
         const hasInvalidInput = this._inputList.some(inputElement => !inputElement.validity.valid);
         if (hasInvalidInput) {
-            this._disableButton();
+            this.disableButton();
         }
         else {
             this._activateButton();
