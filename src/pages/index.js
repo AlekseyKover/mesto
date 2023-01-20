@@ -45,7 +45,6 @@ const openProfilePopup = new PopupWithForm({
   }
 }, '.popup_edit');
 
-
 openProfilePopup.setEventListeners();
 
 buttonOpenProfilePopup.addEventListener('click', function () {
@@ -54,7 +53,6 @@ buttonOpenProfilePopup.addEventListener('click', function () {
   popupName.setAttribute('value', userInfo.username);
   jobElement.setAttribute('value', userInfo.userjob);
 })
-
 
 const addPopupCard = new PopupWithForm({
   submitForm: (addData) => {
