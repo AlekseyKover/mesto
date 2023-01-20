@@ -1,51 +1,47 @@
 import "./index.css";
-import {Card} from "../components/Card.js";
-import {FormValidator} from "../components/FormValidator.js";
-import {PopupWithImage} from "../components/PopupWithImage.js";
-import {UserInfo}  from "../components/UserInfo.js";
-import {Section}  from "../components/Section.js";
-import {PopupWithForm} from "../components/PopupWithForm.js";
-import {validationConfig, initialCards } from "../components/utils/constants.js";
+import { Card } from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { Section } from "../components/Section.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { validationConfig, initialCards } from "../utils/constants";
 
-import { buttonOpenProfilePopup,
-   popupFormProfile,
-   popupOpenButtonElementAdd,
-  popupAddForm,jobElement,
-   popupName} from '../components/utils/elements.js';
+import {
+  buttonOpenProfilePopup,
+  popupFormProfile,
+  popupOpenButtonElementAdd,
+  popupAddForm, jobElement,
+  popupName
+} from '../utils/elements.js';
 
-
-
-
-
-const createCard = (item) => {
-  return new Card(item, 'template', opneImage).render();
-
-
+const createCard = (data) => {
+  return new Card(data, 'template', openImage).render();
 }
-export const opneImage = new PopupWithImage('.popup_image');
-opneImage.setEventListeners();
+const openImage = new PopupWithImage('.popup_image');
+openImage.setEventListeners();
 
- const userprofile = new UserInfo({
+const userProfile = new UserInfo({
   username: '.profile__name',
   userjob: '.profile__profession'
 });
 
-const sections = new Section({
+const section = new Section({
   items: initialCards,
   renderer: (item) => {
     const card = createCard(item);
-    sections.addItem(card);
+    section.addItem(card);
   }
 }, '.elements');
-sections.renderItems();
+section.renderItems();
 
 const openProfilePopup = new PopupWithForm({
-  submitform: (addData) => {
-    userprofile.setUserInfo({
+  submitForm: (addData) => {
+    userProfile.setUserInfo({
       username: addData.username,
       userjob: addData.userjob
     });
-  openProfilePopup.close();
+    openProfilePopup.close();
   }
 }, '.popup_edit');
 
@@ -54,15 +50,15 @@ openProfilePopup.setEventListeners();
 
 buttonOpenProfilePopup.addEventListener('click', function () {
   openProfilePopup.open();
-  const userInfo = userprofile.getUserInfo();
+  const userInfo = userProfile.getUserInfo();
   popupName.setAttribute('value', userInfo.username);
   jobElement.setAttribute('value', userInfo.userjob);
 })
 
 
 const addPopupCard = new PopupWithForm({
-  submitform: (addData) => {
-    sections.addItem(createCard({
+  submitForm: (addData) => {
+    section.addItem(createCard({
       name: addData.namelocation,
       link: addData.namelink
     }));
