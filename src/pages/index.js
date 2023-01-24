@@ -6,7 +6,7 @@ import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { validationConfig, initialCards } from "../utils/constants";
-
+import { Api } from "../components/Api";
 import {
   buttonOpenProfilePopup,
   popupFormProfile,
@@ -14,6 +14,28 @@ import {
   popupAddForm, jobElement,
   popupName
 } from '../utils/elements.js';
+
+const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-57/",
+  headers: {
+    authorization: "51b0f5f8-3da0-4522-9b83-fa3cf173d796",
+    "Content-Type": "application/json"
+  }
+    .then(res => res.json())
+    .then((result) => {
+      console.log(result);
+    })
+});
+
+
+api.getAllcards()
+
+
+
+
+
+
+
 
 const createCard = (data) => {
   return new Card(data, 'template', openImage).render();

@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
-    
+
 </head>
 
 <body class="page">
     <header class="header">
-        <img src=./images/logo.svg class="header__logo"  alt="Лого">
+        <img src=./images/logo.svg class="header__logo" alt="Лого">
     </header>
     <main class="content">
         <section class="profile">
             <div class="profile__info">
-                <img class="profile__avatar" src=./images/Avatar.png alt="Аватар пользователя">
+                <div class="profile__avatars">
+                    <img class="profile__avatar" src=./images/Avatar.png alt="Аватар пользователя">
+                </div>
                 <div class="profile__text">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button type="button" class="profile__button-edit"></button>
@@ -27,7 +29,7 @@
         <section class="elements">
             <template class="template">
                 <div class="element">
-                    <img class="element__delete" src=./images/Vector-trach.svg alt ='удалить'> 
+                    <img class="element__delete" src=./images/Vector-trach.svg alt='удалить'>
                     <img class="element__photo" src=./images/Karachaevsk.png alt="Карачаевск">
                     <div class="element__footer">
                         <h2 class="element__title">Карачаевск</h2>
@@ -47,13 +49,14 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form" name="popup-content" novalidate>
                 <section class="popup__section">
-                    <input type="text" value="Жак-Ив Кусто" id="input-text" class="popup__input popup__input_item_name input-text"
-                        name="username"  minlength="2" maxlength="40" required>
+                    <input type="text" value="Жак-Ив Кусто" id="input-text"
+                        class="popup__input popup__input_item_name input-text" name="username" minlength="2"
+                        maxlength="40" required>
                     <span class="popup__input-error"> Вы пропустиле поле</span>
                 </section>
                 <section class="popup__section">
-                    <input type="text" value="Исследоваель океана" name ="userjob" class="popup__input popup__input_item_profession" 
-                        required minlength="2" maxlength="200">
+                    <input type="text" value="Исследоваель океана" name="userjob"
+                        class="popup__input popup__input_item_profession" required minlength="2" maxlength="200">
                     <span class="popup__input-error"></span>
                 </section>
 
@@ -76,11 +79,26 @@
                         class="popup__input popup__input_item_link" name="namelink" required>
                     <span class="popup__input-error"></span>
                 </section>
-                <button class="popup__button popup__button_add"  type="submit" >Создать</button>
+                <button class="popup__button popup__button_add" type="submit">Создать</button>
 
             </form>
         </div>
     </div>
+    <div class="popup popup_avatar">
+        <div class="popup__container popup__container_avatar">
+            <button type="button" class="popup__close popup__close_avatar"></button>
+            <h2 class="popup__title">Обновите Аватар</h2>
+            <form class="popup__form" name="popup-content" novalidate>
+                <section class="popup__section">
+                    <input type="text" value="" placeholder="Название" class="popup__input popup__input_item_avatar"
+                        name="namelocation" minlength="2" maxlength="30" required>
+                    <span class="popup__input-error">Вы пропустиле поле</span>
+                </section>
+                <button class="popup__button popup__button_add" type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+
     <div class="popup popup_image">
         <div class="popup__container-images">
             <button class="popup__close popup__image-close"></button>
@@ -88,7 +106,7 @@
             <p class="popup__text"></p>
         </div>
     </div>
-    
+
 </body>
 
 </html>
