@@ -14,18 +14,23 @@ export class Api {
     }
 
     getUserInfo() {
-        return fetch(this._url + "users/me", {
+        return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
         })
-            .then(res => this._checkRes(res));
+            .then(res => this._parseResponse(res));
+
+
+
     }
 
     getAllCards() {
-        return fetch(this._url + "cards/", {
+        return fetch(`${this._baseUrl}/cards`, {
             headers: this._headers
         })
-            .then(res => this._checkRes(res))
+            .then(res => this._parseResponse(res));
     }
+
+
 
     setUserIfo(userInfo) {
         return fetch(this._url + "users/me", {

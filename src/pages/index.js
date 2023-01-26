@@ -15,7 +15,7 @@ import {
   popupAddForm, jobElement,
   popupName
 } from '../utils/elements.js';
-let userId;
+
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-57/",
@@ -24,7 +24,7 @@ const api = new Api({
     "Content-Type": "application/json"
   }
 })
-
+let userId;
 Promise.all([api.getAllCards(), api.getUserInfo()])
   .then(([initialCards, userData]) => {
     userProfile.setUserInfo(userData);
