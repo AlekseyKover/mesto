@@ -45,7 +45,10 @@ export default class Api {
         return fetch(this._url + "cards", {
             method: "POST",
             headers: this._headers,
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                name: data.name,
+                link: data.link
+            })
         })
             .then(res => this._checkRes(res))
     }
