@@ -1,4 +1,4 @@
-export class Api {
+export default class Api {
     constructor(config) {
         this._url = config.baseUrl;
         this._headers = config.headers
@@ -14,7 +14,7 @@ export class Api {
     }
 
     getUserInfo() {
-        return fetch(`${this._baseUrl}/users/me`, {
+        return fetch(`${this._url}/users/me`, {
             headers: this._headers
         })
             .then(res => this._parseResponse(res));
@@ -24,7 +24,7 @@ export class Api {
     }
 
     getAllCards() {
-        return fetch(`${this._baseUrl}/cards`, {
+        return fetch(`${this._url}/cards`, {
             headers: this._headers
         })
             .then(res => this._parseResponse(res));

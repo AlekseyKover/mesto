@@ -6,7 +6,7 @@ import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { validationConfig } from "../utils/constants";
-import { Api } from "../components/Api.js";
+import Api from '../components/Api.js'
 import { PopupWithSubmit } from "../components/PopupWithSubmit.js";
 import {
   buttonOpenProfilePopup,
@@ -18,7 +18,7 @@ import {
 
 
 const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-57/",
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-57",
   headers: {
     authorization: "51b0f5f8-3da0-4522-9b83-fa3cf173d796",
     "Content-Type": "application/json"
