@@ -116,12 +116,13 @@ openImage.setEventListeners();
 
 const userProfile = new UserInfo({
   username: '.profile__name',
-  userjob: '.profile__profession'
+  userjob: '.profile__profession',
+  avatar: '.profile__avatar'
 });
 
 const section = new Section({
   renderer: (card) => {
-    cardsList.addItem(createCard(card));
+    section.addItem(createCard(card));
   },
 }, '.elements');
 

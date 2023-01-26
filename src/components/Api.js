@@ -17,7 +17,7 @@ export default class Api {
         return fetch(`${this._url}/users/me`, {
             headers: this._headers
         })
-            .then(res => this._parseResponse(res));
+            .then(res => this._checkRes(res));
 
 
 
@@ -27,7 +27,7 @@ export default class Api {
         return fetch(`${this._url}/cards`, {
             headers: this._headers
         })
-            .then(res => this._parseResponse(res));
+            .then(res => this._checkRes(res));
     }
 
 
@@ -54,10 +54,12 @@ export default class Api {
     }
 
     setUserAvatar(data) {
-        return fetch(this._url + "users/me/avatar", {
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: "PATCH",
             headers: this._headers,
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                avatar: data.avatar
+            })
         })
             .then(res => this._checkRes(res))
     }

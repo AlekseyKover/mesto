@@ -12,6 +12,6 @@ export class Section {
 
 
     addItem(itemHtml) {
-        this._selector.prepend(itemHtml)
+        this._container.prepend(itemHtml)
     }
 }
