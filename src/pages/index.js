@@ -5,8 +5,9 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Section } from "../components/Section.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
-import { validationConfig, initialCards } from "../utils/constants";
-import { Api } from "../components/Api";
+import { validationConfig } from "../utils/constants";
+import { Api } from "../components/Api.js";
+import { PopupWithSubmit } from "../components/PopupWithSubmit.js";
 import {
   buttonOpenProfilePopup,
   popupFormProfile,
@@ -14,6 +15,7 @@ import {
   popupAddForm, jobElement,
   popupName
 } from '../utils/elements.js';
+let userId;
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-57/",
@@ -21,25 +23,94 @@ const api = new Api({
     authorization: "51b0f5f8-3da0-4522-9b83-fa3cf173d796",
     "Content-Type": "application/json"
   }
-    .then(res => res.json())
-    .then((result) => {
-      console.log(result);
+})
+
+Promise.all([api.getAllCards(), api.getUserInfo()])
+  .then(([initialCards, userData]) => {
+    userProfile.setUserInfo(userData);
+    userId = userData._id;
+    section.renderItems(initialCards);
+  })
+  .catch((err) => {
+    console.log(`Ошибка: ${err}`);
+  });
+
+
+
+const popupWithSubmit = new PopupWithSubmit('.popup_delete');
+
+const deleteCard = (id, removeCardHandler) => {
+  api.deleteCard(id)
+    .then(res => {
+      popupWithSubmit.close()
+      removeCardHandler();
+      return res;
     })
-});
+}
 
+const addLike = (likeElement, cardId) => {
+  api.like(cardId)
+    .then(res => {
+      likeElement.textContent = res.likes.length;
+    })
+}
 
-api.getAllcards()
+const deleteLike = (likeElement, cardId) => {
+  api.dislike(cardId)
+    .then(res => {
+      likeElement.textContent = res.like.length;
+    })
+}
 
-
-
-
-
-
-
+/*const createCard = (data) => {
+  return new Card(data, 'template', openImage, popupWithSubmit, userProfile.getUserOwner(), addLike, deleteLike, deleteCard).render();
+}*/
 
 const createCard = (data) => {
-  return new Card(data, 'template', openImage).render();
-}
+  const card = new Card({
+    data: data,
+    cardSelector: 'template',
+    userId: userId,
+    handleCardClick: (name, link) => {
+      openImage.open(name, link);
+    },
+    handleDeleteIconClick: (cardId) => {
+      popupWithSubmit.open();
+      popupWithSubmit.submitCallback(() => {
+        api.deleteCard(cardId)
+          .then(() => {
+            popupWithSubmit.close();
+            card.deleteCard();
+          })
+          .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+          });
+      });
+    },
+    handleSetLike: (cardId) => {
+      api.like(cardId)
+        .then((data) => {
+          card.handleLikeCard(data);
+        })
+        .catch((err) => {
+          console.log(`Ошибка: ${err}`);
+        });
+    },
+    handleRemoveLike: (cardId) => {
+      api.dislike(cardId)
+        .then((data) => {
+          card.handleLikeCard(data);
+        })
+        .catch((err) => {
+          console.log(`Ошибка: ${err}`);
+        });
+    }
+  });
+  const cardElement = card.generateCard();
+  return cardElement;
+};
+
+
 const openImage = new PopupWithImage('.popup_image');
 openImage.setEventListeners();
 
@@ -49,13 +120,17 @@ const userProfile = new UserInfo({
 });
 
 const section = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const card = createCard(item);
-    section.addItem(card);
-  }
+  renderer: (card) => {
+    cardsList.addItem(createCard(card));
+  },
 }, '.elements');
-section.renderItems();
+
+
+
+
+
+
+
 
 const openProfilePopup = new PopupWithForm({
   submitForm: (addData) => {
@@ -97,6 +172,21 @@ const validationConfigEdit = new FormValidator(validationConfig, popupFormProfil
 
 validationConfigAdd.enableValidation();
 validationConfigEdit.enableValidation();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

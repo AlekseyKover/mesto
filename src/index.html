@@ -34,6 +34,7 @@
                     <div class="element__footer">
                         <h2 class="element__title">Карачаевск</h2>
                         <button class="element__button" type="button"></button>
+                        <p class="elmenet__likes-number"></p>
                     </div>
                 </div>
             </template>
@@ -94,8 +95,15 @@
                         name="namelocation" minlength="2" maxlength="30" required>
                     <span class="popup__input-error">Вы пропустиле поле</span>
                 </section>
-                <button class="popup__button popup__button_add" type="submit">Создать</button>
+                <button class="popup__button" type="submit">Создать</button>
             </form>
+        </div>
+    </div>
+    <div class="popup popup_delete">
+        <div class="popup__container popup__container_avatar">
+            <button type="button" class="popup__close popup__close_delete"></button>
+            <h2 class="popup__title">Вы уверены?</h2>
+            <button type="button" class="popup__button">Да</button>
         </div>
     </div>
 
