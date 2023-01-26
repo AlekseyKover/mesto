@@ -33,8 +33,9 @@
                     <img class="element__photo" src=./images/Karachaevsk.png alt="Карачаевск">
                     <div class="element__footer">
                         <h2 class="element__title">Карачаевск</h2>
-                        <button class="element__button" type="button"></button>
-                        <p class="elmenet__likes-number"></p>
+                        <button class="element__button" type="button">
+                            <p class="elmenet__likes-number"></p>
+                        </button>
                     </div>
                 </div>
             </template>
@@ -91,8 +92,8 @@
             <h2 class="popup__title">Обновите Аватар</h2>
             <form class="popup__form" name="popup-content" novalidate>
                 <section class="popup__section">
-                    <input type="text" value="" placeholder="Название" class="popup__input popup__input_item_avatar"
-                        name="namelocation" minlength="2" maxlength="30" required>
+                    <input type="url" value="" placeholder="Ссылка на картинку"
+                        class="popup__input popup__input_item_avatar" name="avatar" minlength="2" required>
                     <span class="popup__input-error">Вы пропустиле поле</span>
                 </section>
                 <button class="popup__button" type="submit">Создать</button>
@@ -103,7 +104,9 @@
         <div class="popup__container popup__container_avatar">
             <button type="button" class="popup__close popup__close_delete"></button>
             <h2 class="popup__title">Вы уверены?</h2>
-            <button type="button" class="popup__button">Да</button>
+            <form class="popup__form" name="popup-delete">
+                <button type="button" class="popup__button">Да</button>
+            </form>
         </div>
     </div>
 

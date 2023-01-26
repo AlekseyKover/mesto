@@ -1,3 +1,5 @@
+
+
 export class Section {
     constructor({ renderer }, containerSelector) {
         this._renderer = renderer
@@ -12,6 +14,8 @@ export class Section {
 
 
     addItem(itemHtml) {
-        this._container.prepend(itemHtml)
+        this._container.append(itemHtml)
+
+
     }
 }

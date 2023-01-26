@@ -13,7 +13,7 @@ import {
   popupFormProfile,
   popupOpenButtonElementAdd,
   popupAddForm, jobElement,
-  popupName
+  popupName, openAvatar, formPopupAvatar
 } from '../utils/elements.js';
 
 
@@ -37,49 +37,22 @@ Promise.all([api.getAllCards(), api.getUserInfo()])
 
 
 
-const popupWithSubmit = new PopupWithSubmit('.popup_delete');
-
-const deleteCard = (id, removeCardHandler) => {
-  api.deleteCard(id)
-    .then(res => {
-      popupWithSubmit.close()
-      removeCardHandler();
-      return res;
-    })
-}
-
-const addLike = (likeElement, cardId) => {
-  api.like(cardId)
-    .then(res => {
-      likeElement.textContent = res.likes.length;
-    })
-}
-
-const deleteLike = (likeElement, cardId) => {
-  api.dislike(cardId)
-    .then(res => {
-      likeElement.textContent = res.like.length;
-    })
-}
-
-/*const createCard = (data) => {
-  return new Card(data, 'template', openImage, popupWithSubmit, userProfile.getUserOwner(), addLike, deleteLike, deleteCard).render();
-}*/
-
+const deleteCardPopup = new PopupWithSubmit('.popup_delete');
+deleteCardPopup.setEventListeners();
 const createCard = (data) => {
   const card = new Card({
     data: data,
     cardSelector: 'template',
     userId: userId,
-    handleCardClick: (name, link) => {
-      openImage.open(name, link);
+    handleCardClick: (cardData) => {
+      openImage.open(cardData);
     },
     handleDeleteIconClick: (cardId) => {
-      popupWithSubmit.open();
-      popupWithSubmit.submitCallback(() => {
+      deleteCardPopup.open();
+      deleteCardPopup.submitCallback(() => {
         api.deleteCard(cardId)
           .then(() => {
-            popupWithSubmit.close();
+            deleteCardPopup.close();
             card.deleteCard();
           })
           .catch((err) => {
@@ -127,23 +100,58 @@ const section = new Section({
 }, '.elements');
 
 
-
-
-
-
-
-
 const openProfilePopup = new PopupWithForm({
   submitForm: (addData) => {
-    userProfile.setUserInfo({
-      username: addData.username,
-      userjob: addData.userjob
-    });
-    openProfilePopup.close();
+    openProfilePopup.loading(true);
+    api.setUserIfo(addData)
+      .then((addData) => {
+        userProfile.setUserInfo(addData);
+        openProfilePopup.close();
+      })
+      .finally(() => {
+        openProfilePopup.loading(false);
+      });
   }
 }, '.popup_edit');
-
 openProfilePopup.setEventListeners();
+
+
+const addPopupCard = new PopupWithForm({
+  submitForm: (addData) => {
+    addPopupCard.loading(true);
+    api.addNewCard(addData)
+      .then((addData) => {
+        section.addItem(createCard(addData));
+        addPopupCard.close();
+      })
+      .finally(() => {
+        addPopupCard.loading(false);
+      });
+  }
+}, '.popup_add');
+addPopupCard.setEventListeners();
+
+
+const editAvatar = new PopupWithForm({
+  submitForm: (addData) => {
+    editAvatar.loading(true);
+    api.setUserAvatar(addData)
+      .then((addData) => {
+        avatar.src = addData.avatar;
+        editAvatar.close();
+      })
+      .finally(() => {
+        editAvatar.loading(false);
+      });
+  }
+}, '.popup_avatar');
+
+openAvatar.addEventListener('click', function () {
+  editAvatar.open();
+  validationConfigAvatar.disableButton();
+
+})
+editAvatar.setEventListeners();
 
 buttonOpenProfilePopup.addEventListener('click', function () {
   openProfilePopup.open();
@@ -152,25 +160,18 @@ buttonOpenProfilePopup.addEventListener('click', function () {
   jobElement.setAttribute('value', userInfo.userjob);
 })
 
-const addPopupCard = new PopupWithForm({
-  submitForm: (addData) => {
-    section.addItem(createCard({
-      name: addData.namelocation,
-      link: addData.namelink
-    }));
-    addPopupCard.close();
-  }
-}, '.popup_add');
-addPopupCard.setEventListeners();
+
 
 popupOpenButtonElementAdd.addEventListener('click', function () {
-  addPopupCard.open();
   validationConfigAdd.disableButton();
+  addPopupCard.open();
+
 })
 
 const validationConfigAdd = new FormValidator(validationConfig, popupAddForm);
 const validationConfigEdit = new FormValidator(validationConfig, popupFormProfile);
-
+const validationConfigAvatar = new FormValidator(validationConfig, formPopupAvatar);
+validationConfigAvatar.enableValidation();
 validationConfigAdd.enableValidation();
 validationConfigEdit.enableValidation();
 
