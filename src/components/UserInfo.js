@@ -4,6 +4,7 @@ export class UserInfo {
     this._userjob = document.querySelector(userjob);
     this._avatar = document.querySelector(avatar);
   }
+
   getUserInfo() {
     const userInfo = {
       username: this._username.textContent,
@@ -12,8 +13,6 @@ export class UserInfo {
     }
     return userInfo
   }
-
-
 
   setUserInfo(data) {
     this._username.textContent = data.name;

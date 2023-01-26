@@ -24,7 +24,9 @@ const api = new Api({
     "Content-Type": "application/json"
   }
 })
+
 let userId;
+
 Promise.all([api.getAllCards(), api.getUserInfo()])
   .then(([initialCards, userData]) => {
     userProfile.setUserInfo(userData);
@@ -34,8 +36,6 @@ Promise.all([api.getAllCards(), api.getUserInfo()])
   .catch((err) => {
     console.log(`Ошибка: ${err}`);
   });
-
-
 
 const deleteCardPopup = new PopupWithSubmit('.popup_delete');
 deleteCardPopup.setEventListeners();
@@ -79,10 +79,9 @@ const createCard = (data) => {
         });
     }
   });
-  const cardElement = card.generateCard();
+  const cardElement = card.render();
   return cardElement;
 };
-
 
 const openImage = new PopupWithImage('.popup_image');
 openImage.setEventListeners();
@@ -99,7 +98,6 @@ const section = new Section({
   },
 }, '.elements');
 
-
 const openProfilePopup = new PopupWithForm({
   submitForm: (addData) => {
     openProfilePopup.loading(true);
@@ -115,7 +113,6 @@ const openProfilePopup = new PopupWithForm({
 }, '.popup_edit');
 openProfilePopup.setEventListeners();
 
-
 const addPopupCard = new PopupWithForm({
   submitForm: (addData) => {
     addPopupCard.loading(true);
@@ -130,7 +127,6 @@ const addPopupCard = new PopupWithForm({
   }
 }, '.popup_add');
 addPopupCard.setEventListeners();
-
 
 const editAvatar = new PopupWithForm({
   submitForm: (addData) => {
@@ -159,8 +155,6 @@ buttonOpenProfilePopup.addEventListener('click', function () {
   popupName.setAttribute('value', userInfo.username);
   jobElement.setAttribute('value', userInfo.userjob);
 })
-
-
 
 popupOpenButtonElementAdd.addEventListener('click', function () {
   validationConfigAdd.disableButton();

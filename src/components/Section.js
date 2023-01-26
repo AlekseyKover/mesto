@@ -1,5 +1,3 @@
-
-
 export class Section {
     constructor({ renderer }, containerSelector) {
         this._renderer = renderer
@@ -10,12 +8,7 @@ export class Section {
         data.forEach(item => this._renderer(item));
     }
 
-
-
-
     addItem(itemHtml) {
         this._container.append(itemHtml)
-
-
     }
 }
