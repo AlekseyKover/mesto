@@ -13,7 +13,7 @@ import {
   popupFormProfile,
   popupOpenButtonElementAdd,
   popupAddForm, jobElement,
-  popupName, openAvatar, formPopupAvatar
+  popupName, popupOpenElementAvatar, formPopupAvatar
 } from '../utils/elements.js';
 
 
@@ -133,7 +133,7 @@ const editAvatar = new PopupWithForm({
     editAvatar.loading(true);
     api.setUserAvatar(addData)
       .then((addData) => {
-        avatar.src = addData.avatar;
+        userProfile.setUserInfo(addData);
         editAvatar.close();
       })
       .finally(() => {
@@ -142,7 +142,7 @@ const editAvatar = new PopupWithForm({
   }
 }, '.popup_avatar');
 
-openAvatar.addEventListener('click', function () {
+popupOpenElementAvatar.addEventListener('click', function () {
   editAvatar.open();
   validationConfigAvatar.disableButton();
 
@@ -168,27 +168,3 @@ const validationConfigAvatar = new FormValidator(validationConfig, formPopupAvat
 validationConfigAvatar.enableValidation();
 validationConfigAdd.enableValidation();
 validationConfigEdit.enableValidation();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

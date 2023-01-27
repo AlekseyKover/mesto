@@ -1,4 +1,4 @@
-export  class FormValidator {
+export class FormValidator {
     constructor(validationConfig, objectForm,) {
         this._validationConfig = validationConfig;
         this._objectForm = objectForm;
@@ -57,5 +57,11 @@ export  class FormValidator {
 
     enableValidation = () => {
         this._setEventListeners();
+    }
+    resetValidation() {
+        this._inputList.forEach((input) => {
+            this._hidenInputError(input)
+        })
+        this.toggleButtonState()
     }
 }

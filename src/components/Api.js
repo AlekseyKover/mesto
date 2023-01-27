@@ -19,8 +19,6 @@ export default class Api {
         })
             .then(res => this._checkRes(res));
 
-
-
     }
 
     getAllCards() {
@@ -29,8 +27,6 @@ export default class Api {
         })
             .then(res => this._checkRes(res));
     }
-
-
 
     setUserIfo(userInfo) {
         return fetch(`${this._url}/users/me`, {
